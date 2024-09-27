@@ -16,6 +16,7 @@ termux_step_pre_configure() {
 	patch -p1 < "$TERMUX_PKG_BUILDER_DIR/defs.py.diff"
 	patch -p1 < "$TERMUX_PKG_BUILDER_DIR/utils.py.diff"
 	patch -p1 < "$TERMUX_PKG_BUILDER_DIR/pyproject.toml.diff"
+	curl -L https://github.com/hbldh/bleak/pull/1642.diff | patch -p1
 }
 
 termux_step_make() {
