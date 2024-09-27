@@ -11,5 +11,5 @@ index xxxxxxx..yyyyyyy 100644
 -activity = cast("android.app.Activity", PythonActivity.mActivity)
 -context = cast("android.content.Context", activity.getApplicationContext())
 +PyJNIusService = autoclass('com.termux.api.apis.PyJNIusAPI$PyJNIusService')
-+service = PyJNIusService.mService
++service = PyJNIusService.getServiceInstance()
 +context = cast("android.content.Context", service.getApplicationContext())

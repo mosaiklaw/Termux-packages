@@ -13,12 +13,12 @@ TERMUX_PKG_BUILD_IN_SRC=true
 
 termux_step_pre_configure() {
 	_ANDROID_JAR="$ANDROID_HOME/platforms/android-28/android.jar"
-	sed -i '/\[tool\.poetry\]/a include = ["bleak/backends/p4android/classes.dex"]' pyproject.toml
 	patch -p1 < "$TERMUX_PKG_BUILDER_DIR/defs.py.diff"
+	patch -p1 < "$TERMUX_PKG_BUILDER_DIR/utils.py.diff"
+	patch -p1 < "$TERMUX_PKG_BUILDER_DIR/pyproject.toml.diff"
 }
 
 termux_step_make() {
-	set -x
 	javac -encoding UTF-8 -source 1.8 -target 1.8 $(find . -name "*.java") -bootclasspath $_ANDROID_JAR
 	$ANDROID_HOME/build-tools/33.0.1/d8 $(find . -name "*.class") \
 		--lib $_ANDROID_JAR \
