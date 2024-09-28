@@ -19,7 +19,6 @@ termux_step_pre_configure() {
 
 termux_step_make() {
 	python setup.py sdist
-	find . -name "*.class"
 	$ANDROID_HOME/build-tools/33.0.1/d8 $(find . -name "*.class") \
 		--lib $_ANDROID_JAR \
 		--release \

@@ -10,6 +10,7 @@ TERMUX_PKG_PYTHON_BUILD_DEPS="poetry"
 TERMUX_PKG_DEPENDS="python, pyjnius"
 TERMUX_PKG_PLATFORM_INDEPENDENT=true
 TERMUX_PKG_BUILD_IN_SRC=true
+TERMUX_PKG_ON_DEVICE_BUILD_NOT_SUPPORTED=true
 
 termux_step_pre_configure() {
 	_ANDROID_JAR="$ANDROID_HOME/platforms/android-28/android.jar"
